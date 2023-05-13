@@ -1,13 +1,9 @@
 package mockito;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.sql.*;
 
 @DisplayName("DB Test")
-@ExtendWith(MockitoExtension.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DBTest {
     Connection conn;
