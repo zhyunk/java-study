@@ -2,17 +2,9 @@ package mockito;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.sql.*;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 @DisplayName("DB Test")
 @ExtendWith(MockitoExtension.class)
@@ -20,12 +12,6 @@ import static org.mockito.Mockito.verify;
 public class DBTest {
     Connection conn;
     Statement stmt;
-
-    @Mock // UserRepository 타입의 모의 객체 생성
-    UserRepository userRepository;
-
-    @InjectMocks // 모의 객체 주입
-    UserService userService;
 
     @Test
     void data() throws SQLException {
