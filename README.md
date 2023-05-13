@@ -1,5 +1,5 @@
 # java-study
-Java 부족한 부분 공부용 
+Java 부족한 부분 실습용 
 
 #### enum 
 > [간단한 사용 실습](https://github.com/zhyunk/java-study/tree/main/java/src/main/java/enumStudy)
