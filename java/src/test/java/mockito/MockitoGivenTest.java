@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.willReturn;
 import static org.mockito.Mockito.*;
 
 /**
@@ -112,7 +113,7 @@ class MockitoGivenTest {
         given(spyList.get(1)).willReturn("우하핳");
         System.out.println(spyList.get(1)); // 우하핳
 
-        doReturn("HaHa").when(spyList).get(0);
+        willReturn("HaHa").given(spyList).get(0);
         System.out.println(spyList.get(0)); // HaHa
 
         verify(spyList, times(2)).get(0);
