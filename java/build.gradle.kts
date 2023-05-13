@@ -18,8 +18,12 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:1.18.26")
 
     // mockito ----------------------------------------------------------------------------------------------------
-    testImplementation("org.mockito:mockito-core:4.10.0+")
-    // ---------------------------------------------------------------------------------------------------- mockito
+    testImplementation("org.mockito:mockito-core:4.11.0+")
+    testImplementation("org.mockito:mockito-junit-jupiter:4.11.0")
+
+    // h2 ----------------------------------------------------------------------------------------------------
+    runtimeOnly("com.h2database:h2:2.1.214+")
+    // ---------------------------------------------------------------------------------------------------- h2
 
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
