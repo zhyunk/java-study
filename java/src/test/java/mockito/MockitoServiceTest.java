@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.sql.*;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,10 +15,7 @@ import static org.mockito.Mockito.verify;
 
 @DisplayName("DB Test")
 @ExtendWith(MockitoExtension.class)
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class MockitoServiceTest {
-    Connection conn;
-    Statement stmt;
 
     @Mock // UserRepository 타입의 모의 객체 생성
     UserRepository userRepository;
@@ -41,7 +37,7 @@ public class MockitoServiceTest {
         System.out.println(result.toString());
     }
     @Test
-    void insert2() throws SQLException {
+    void insert2() {
         User user = new User(2, "코알라", "native.bear@zh.kim");
 
         given( userRepository.findById(1) ).willReturn( Optional.of(user) );
@@ -52,43 +48,6 @@ public class MockitoServiceTest {
         verify( userRepository, times(1) ).findById(1);
 
         System.out.println(result.toString());
-    }
-
-
-    // 아래 2개의 메서드는 실제 값 넣어보는 용도로만 확인! 확인 시 class 위에 @TestInstance 주석 해제
-    // @BeforeAll
-    void init() {
-        try {
-            Class.forName("org.h2.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:h2:mem:test2",
-                    "sa",
-                    ""
-            );
-            stmt = conn.createStatement();
-            stmt.execute(
-                    "CREATE TABLE USERS(" +
-                            "    ID INT PRIMARY KEY AUTO_INCREMENT," +
-                            "    NAME VARCHAR(100)," +
-                            "    EMAIL VARCHAR(100)" +
-                            ");"
-            );
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // @AfterAll
-    void destroy() {
-        try {
-            stmt.execute(
-                    "DROP TABLE USERS;"
-            );
-            stmt.close();
-            conn.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 }
