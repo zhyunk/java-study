@@ -13,7 +13,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-@DisplayName("DB Test")
+@DisplayName("Service Test")
 @ExtendWith(MockitoExtension.class)
 public class MockitoServiceTest {
 
