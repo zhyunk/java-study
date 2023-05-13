@@ -129,7 +129,7 @@ class MockitoTest {
         first.add("하이");
         second.add("Hi");
 
-        InOrder inOrder = inOrder(first, second);
+        InOrder inOrder = inOrder(first, second); // 순서를 검증할 목 객체 지정
         
         // 검증 성공
         inOrder.verify(first).add("하이");
